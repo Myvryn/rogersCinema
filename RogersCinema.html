@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Untitled 1</title>
+<script type="text/javascript">
+	function setDatesDropdown(){
+		var futureLength = 14;
+		var date = new Date();
+		for (var i = 0; i<futureLength; i++){			
+			date.setDate(date.getDate() +1);
+			if(i == 0) { text = "Today" }
+			else { text = (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear(); }
+			addOption( document.dropList.SelectDate, text , date  );				
+		}	
+	}		
+	function addOption( selectBox, text, value ){
+		var optn = document.createElement("OPTION");
+		optn.text = text;
+		optn.value = value;
+		selectBox.options.add(optn)		
+	}
+</script>
+</head>
+
+<body onload="setDatesDropdown()">
+	<form name="dropList" id="dropList">
+		<select name="SelectDate" id="SelectDate">			
+		</select>
+	</form>
+</body>
+
+</html>
